@@ -1,0 +1,138 @@
+﻿<Window x:Class="ManagerManagmentsys.Views.UserDashBaord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerManagmentsys.Views"
+        mc:Ignorable="d"
+        Title="UserDashBaord" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="3"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Label FontFamily="Segoe UI" FontSize="25" FontWeight="UltraBold"  Content="Employee"></Label>
+            <Label x:Name="labName" FontSize="25" FontWeight="UltraBold"></Label>
+        </StackPanel>
+        <TextBlock 
+            Text="Pending / In Progress" 
+            TextAlignment="Center" 
+            FontSize="25" FontWeight="Bold" 
+            VerticalAlignment="Center" 
+            Height="42" Foreground="Black" 
+            Grid.Row="1" 
+            Background="Gray" 
+            Width="300" 
+            HorizontalAlignment="Left" 
+            Margin="10,0,0,0"></TextBlock>
+
+        <DataGrid 
+                  Name="PenPor"
+                  Margin="10"
+                  Grid.Row="2" 
+                  Grid.RowSpan="2"
+                  AutoGenerateColumns="False"
+                  RowBackground="Gray"
+                  AlternatingRowBackground="White"
+                  HeadersVisibility="All"
+                  IsReadOnly="True"
+                  GridLinesVisibility="Vertical"
+                  VerticalGridLinesBrush="Black"
+                  FontSize="14"
+                  FontWeight="Bold"
+                  BorderThickness="2"
+                  BorderBrush="Black"
+                  SelectionMode="Single">
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="Gray"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="BorderBrush" Value="Gray"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*"  Header="TaskId" Binding="{Binding TaskId }" />
+                <DataGridTextColumn Width="*" Header="Title" Binding="{Binding Title }" />
+                <DataGridTextColumn Width="*" Header="Descrption" Binding="{Binding Description }" />
+                <DataGridTextColumn Width="*" Header="Status" Binding="{Binding Status }"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" FontSize="25" Width="130" Height="35" Text="Task"></TextBlock>
+                <TextBox x:Name="taskId" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="30" Height="30"></TextBox>
+            </StackPanel>
+
+            <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                <TextBlock  Text="Status" Width="120" Height="22"></TextBlock>
+                <ComboBox Name="asd" Width="120" Height="25" >
+                    <ComboBoxItem IsSelected="True">Pending</ComboBoxItem>
+                    <ComboBoxItem>In Progress</ComboBoxItem>
+                    <ComboBoxItem>Completed</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <Button Click="Save" Grid.Column="2" Content="Save" Width="120" Height="50"></Button>
+        </Grid>
+        <DataGrid 
+            Name="Compelete"
+            Margin="10,10,10,0"
+           Grid.Row="5" 
+           Grid.RowSpan="2"
+           AutoGenerateColumns="False"
+           RowBackground="Gray"
+           AlternatingRowBackground="White"
+           HeadersVisibility="All"
+           IsReadOnly="True"
+           GridLinesVisibility="Vertical"
+           VerticalGridLinesBrush="Black"
+           FontSize="14"
+           FontWeight="Bold"
+           BorderThickness="2"
+           BorderBrush="Black"
+           SelectionMode="Single">
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="Gray"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="BorderBrush" Value="Gray"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*"  Header="TaskId" Binding="{Binding TaskId }" />
+                <DataGridTextColumn Width="*" Header="Title" Binding="{Binding Title }" />
+                <DataGridTextColumn Width="*" Header="Descrption" Binding="{Binding Description }" />
+                <DataGridTextColumn Width="*" Header="Status" Binding="{Binding Status }"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="1" Width ="120" Height="35" HorizontalAlignment="Right" Margin="20,0" Click="Logout" Content="Log out" Background="red" Foreground="White"/>
+
+    </Grid>
+</Window>

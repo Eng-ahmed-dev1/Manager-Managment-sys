@@ -1,0 +1,39 @@
+﻿<Window x:Class="ManagerManagmentsys.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerManagmentsys"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <Grid Height="217">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="red" x:Name="ErrorMessageLab" Margin="0,0,0,48"/>
+                <TextBlock  FontWeight="ExtraBold"  Text="UserName" Margin="68,34,238,17" Grid.Row="0"/>
+                <TextBox x:Name="txtUsername"  BorderBrush="Black" BorderThickness="3" Grid.Row="0" Margin="154,32,74,15"/>
+                <TextBlock FontWeight="ExtraBold"  Text="Password" Margin="68,12,238,39" Grid.Row="1"/>
+                <PasswordBox x:Name="txtPassword" BorderBrush="Black" BorderThickness="3" Grid.Row="1" Margin="154,10,74,37"/>
+                <Button IsDefault="True" Click="Loginbtn"  Content="Login" BorderThickness="3" Background="Transparent" BorderBrush='Black' Foreground="Black" FontWeight="ExtraBold" Grid.Row="2" Height="27" VerticalAlignment="Top" Margin="170,2,106,0"/>
+            </Grid>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
